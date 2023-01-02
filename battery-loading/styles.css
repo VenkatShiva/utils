@@ -1,0 +1,165 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #1f1f1f;
+  color: white;
+  min-height: 100vh;
+  font-family: monospace;
+}
+
+.container {
+  position: relative;
+  height: 300px;
+  width: 300px;
+  /* border: 2px solid green; */
+  border-radius: 1rem;
+}
+
+.circle {
+  position: absolute;
+  border-radius: 50%;
+  /* animation: rot-360 10s linear infinite; */
+}
+
+@keyframes rot-360 {
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.circle .bar {
+  display: inline-block;
+  position: absolute;
+  width: 50%;
+  height: 10px;
+  /* background-color: #fff; */
+  top: calc(50% - 5px);
+  left: 50%;
+  transform-origin: left;
+}
+
+.bar::after {
+  content: "";
+  width: 8px;
+  height: 8px;
+  position: absolute;
+  right: 0;
+  top: calc(50% - 4px);
+  background: #fff;
+  border-radius: 50%;
+  animation: load-anim 3s linear infinite;
+  opacity: 0;
+}
+
+.circle-2 .bar::after {
+  animation-delay: 1s;
+}
+
+.circle-3 .bar::after {
+  animation-delay: 2s;
+}
+
+
+
+@keyframes load-anim {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+  /* 90% {
+    opacity: 0;
+  } */
+}
+
+.bar-30 {
+  transform: rotate(30deg);
+}
+.bar-60 {
+  transform: rotate(60deg);
+}
+.bar-90 {
+  transform: rotate(90deg);
+}
+.bar-120 {
+  transform: rotate(120deg);
+}
+.bar-150 {
+  transform: rotate(150deg);
+}
+.bar-180 {
+  transform: rotate(180deg);
+}
+.bar-210 {
+  transform: rotate(210deg);
+}
+.bar-240 {
+  transform: rotate(240deg);
+}
+.bar-270 {
+  transform: rotate(270deg);
+}
+.bar-300 {
+  transform: rotate(300deg);
+}
+.bar-330 {
+  transform: rotate(330deg);
+}
+
+.circle-1 {
+  width: 80%;
+  height: 80%;
+  top: 10%;
+  left: 10%;
+  /* border: 2px solid blue; */
+}
+
+.circle-2 {
+  width: 60%;
+  height: 60%;
+  top: 20%;
+  left: 20%;
+  /* border: 2px solid yellow; */
+}
+
+/* .circle-2 .bar::after {
+  height: 6px;
+  width: 6px;
+  top: calc(50% - 3px);
+} */
+
+.circle-3,
+.time {
+  width: 40%;
+  height: 40%;
+  top: 30%;
+  left: 30%;
+  /* border: 2px solid violet; */
+}
+
+.time {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0.5rem;
+}
+
+.time span {
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+/* .circle-3 .bar::after {
+  height: 4px;
+  width: 4px;
+  top: calc(50% - 2px);
+} */
