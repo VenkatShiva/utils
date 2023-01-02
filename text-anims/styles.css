@@ -1,0 +1,147 @@
+:root {
+  --background-1: linear-gradient(45deg, #02001f, #1f1b4e);
+  --text-color: #ff2c75;
+  --line-height: 2;
+  --font-size: 5rem;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  background: transparent;
+  box-sizing: border-box;
+  font-family: monospace;
+}
+
+body {
+  min-height: 100vh;
+  color: var(--text-color);
+}
+
+.anim-container {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Animation 1 */
+
+/* Split text animation  starts*/
+
+.anim-container.text-split {
+  background: var(--background-1);
+}
+
+.split-cont {
+  position: relative;
+}
+
+.split-cont::before {
+  position: absolute;
+  content: '';
+  width: 110%;
+  height: 4px;
+  background: var(--text-color);
+  top: calc(50% - 2px);
+  left: -5%;
+  border-radius: 20px;
+  transform: scale(0);
+  transition: transform 200ms ease-in-out;
+}
+.split-cont:hover::before {
+  transform: scale(1);
+}
+
+.split-cont > .split-text {
+  font-size: var(--font-size);
+  font-weight: 900;
+  line-height: var(--line-height);
+  display: inline-block;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  letter-spacing: 1rem;
+}
+
+.split-cont:hover > .split-text {
+  color: transparent;
+  user-select: none;
+}
+
+.split-cont > .split-text::before,
+.split-cont > .split-text::after {
+  content: attr(data-text);
+  color: inherit;
+  position: absolute;
+  left: 0;
+  height: calc(var(--line-height) * 0.5em);
+  overflow: hidden;
+  transition: color 200ms ease-in-out, transform 200ms ease-in-out;
+}
+
+.split-cont:hover > .split-text::before,
+.split-cont:hover > .split-text::after {
+  color: #ffffff;
+  transform: skewX(10deg);
+}
+
+.split-cont:hover > .split-text::before {
+  top: 0;
+}
+
+.split-cont:hover > .split-text::after {
+  bottom: 0;
+  display: flex;
+  align-items: flex-end;
+}
+
+/* Split text animation  ends*/
+
+.anim-container.jumping-weekend {
+  background: linear-gradient(225deg, #02001f, #1f1b4e);
+}
+
+.jumping-text {
+	display: flex;
+  font-size: 4rem;
+  font-weight: 900;
+}
+
+.jumping-text span {
+  display: inline-block;
+  animation: jump 2s ease-in-out infinite;
+  transform: translate(0px, 75%) rotate(4deg);
+	line-height: 1;
+}
+
+.jumping-text .text-1 {
+  animation-delay: 120ms;
+}
+.jumping-text .text-2 {
+  animation-delay: 240ms;
+}
+.jumping-text .text-3 {
+  animation-delay: 360ms;
+}
+.jumping-text .text-4 {
+  animation-delay: 480ms;
+}
+.jumping-text .text-5 {
+  animation-delay: 600ms;
+}
+
+@keyframes jump {
+  33% {
+    text-shadow: 0 2rem #ff2cdf, 0 5rem #2cdfff;
+  }
+  50% {
+    transform: translate(0px, -75%) rotate(-4deg);
+    text-shadow: 0 0px #ff2c75, 0 0px #ff2c75;
+  }
+  66.67% {
+    text-shadow: 0 -2rem #ff4d2c, 0 -5rem #2cff4d;
+  }
+}
